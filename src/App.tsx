@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import {Navbar} from './components/Navbar'
+import TodosPage from "./pages/Todos";
+import AboutPage from "./pages/AboutPage";
+import {Routes, Route} from "react-router-dom"
 
-function App() {
+
+const App: React.FC = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <Navbar/>
+      <Routes>
+        <Route path="/" element={<h1>Hello world</h1>}/>
+        <Route path="/todos" element={<TodosPage/>}/>
+        <Route path="/about" element={<AboutPage/>}/>
+      </Routes>
+    </>
+  )
 }
 
-export default App;
+export default App
